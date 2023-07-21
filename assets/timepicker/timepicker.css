@@ -1,0 +1,201 @@
+
+:root{
+	--timepicker-font-color:#000;
+	--timepicker-hover-color:#000;
+	--timepicker-selected-rgb:0,198,255;
+}
+
+.timepicker *{
+	font-family:'Helvetica',arial;
+	font-weight:200;
+	font-size:15px;
+	color:var(--timepicker-font-color);  
+}
+
+.timepicker{
+	position:absolute;
+	display:none;
+	z-index:9999999999999;
+	-webkit-box-shadow: 0 0 30px 0 rgba(0,0,0,0.4);
+	box-shadow: 0 0 30px 0 rgba(0,0,0,0.4);
+	border-radius:0.5em; 
+}
+.timepicker.element{
+	position:relative;
+
+}
+.timepicker.show{
+	display:block;
+}
+
+.timepicker .tp-container{
+	background-color:#FFF;
+	border:1px solid #CCC;
+	border-radius:0.3em;
+	padding:0.3em;  
+}
+.timepicker .picker:not(:last-child){
+	border-right:1px solid #CCC;
+	padding-right:0.3em;   
+}
+
+.timepicker *:not([type="time"]){
+   -moz-user-select: -moz-none;
+   -ms-user-select: none;
+   -khtml-user-select: none;
+   -webkit-touch-callout: none;
+   -webkit-user-select: none;
+   -o-user-select: none;
+   user-select: none;
+}  
+
+.timepicker input:focus{
+    outline:none;
+} 
+        
+.timepicker .tp-tp-buttonbar td,
+.timepicker .tp-time td{
+    padding:0.3em 0.3em 0.3em 0.3em;
+}
+
+.timepicker .tp-year td div,
+.timepicker .tp-month td div{
+	padding:0.2em 0.2em 0.2em 0.2em; 
+	border-radius:1em;      
+}
+
+.timepicker .tp-year,
+.timepicker .tp-month,
+.timepicker .tp-time,
+.timepicker .tp-footer{
+	border-collapse:collapse;
+	width:100%;
+}
+
+.timepicker .tp-over div:hover{
+	background-color:rgba(0,0,0,0.1);
+} 
+
+.timepicker .tp-tp-buttonbar td,
+.timepicker .tp-over,
+.timepicker .tp-footer span{
+   	cursor:pointer;
+    cursor:hand;
+}
+
+.timepicker .tp-footer td:last-child{
+	text-align:right;
+}
+.timepicker .tp-footer td:not(:first-child):not(:last-child){
+	text-align:center;
+}
+  
+.timepicker .tp-footer span{
+    font-weight:400!important;
+    padding:0.3em 1em 0.3em 1em;
+	
+}
+.timepicker .tp-footer span:hover{
+    color:#000;
+	background-color:rgba(0,0,0,0.1);
+	border-radius:1em;
+} 
+
+.timepicker .tp-year .tp-over{
+	padding-top:0.5em;
+	padding-bottom:0.5em;
+}  
+ 
+.timepicker .tp-year td,
+.timepicker .tp-month td{
+    text-align:center;
+	font-weight:200;
+	font-size:1em;
+	line-height:1.1em;    
+}
+
+.timepicker .tp-header{
+	position:relative;
+    top:0px;
+    width:auto;
+    background-color:transparent;
+    border:none;
+    z-index: auto;
+    padding: 0;
+}
+
+.timepicker .tp-header div,
+.timepicker .tp-footer span{
+  	font-weight:200; 
+	font-size:0.7em;
+	line-height:1.45em;
+	color:#888!important; 
+}
+
+.timepicker .tp-month .weekend div{
+	color:#888!important; 
+}
+
+.timepicker .tp-year .selected div,
+.timepicker .tp-month .selected div{
+	background-color:rgba(var(--timepicker-selected-rgb),0.5)!important;
+	color:var(--timepicker-font-color)!important;
+}
+
+.timepicker .tp-month .range{
+	background-color:rgba(var(--timepicker-selected-rgb),0.1)!important;
+}
+.timepicker .tp-month .range.first{ 
+   border-top-left-radius:1em;  
+   border-bottom-left-radius:1em;  
+}
+.timepicker .tp-month .range.last{
+	border-top-right-radius:1em;  
+    border-bottom-right-radius:1em; 
+}
+
+.timepicker .arrow-left{
+	-webkit-border-radius:0!important;
+	border-radius:0!important;
+	padding:0!important;   
+	float:left;
+	clear:left;
+	margin-left:5px;
+	width: 0px;
+	height: 0px;
+	border-style: solid;
+	border-width: 0.4em 0.6em 0.4em 0;
+	border-color: transparent #888888 transparent transparent;
+	line-height: 0px;
+}
+.timepicker .tp-button:hover .arrow-left{
+	border-color: transparent var(--timepicker-hover-color) transparent transparent;
+}
+.timepicker .arrow-right{
+	-webkit-border-radius:0!important;
+	border-radius:0!important;
+	padding:0!important;   
+	float:right;
+	clear:right;
+	margin-right:5px;
+	width: 0px;
+	height: 0px;
+	border-style: solid;
+	border-width: 0.4em 0 0.4em 0.6em;
+	border-color: transparent transparent transparent #888888;
+	line-height: 0px;
+} 
+.timepicker .tp-button:hover .arrow-right{
+	border-color: transparent transparent transparent var(--timepicker-hover-color);
+}
+
+.timepicker canvas{ 
+	width:4em;
+	height:4em;
+	margin:auto;
+}
+.timepicker input{ 
+	border:none;
+	text-align:center;
+	max-width:5.5em;
+}
