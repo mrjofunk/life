@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="x-apple-disable-message-reformatting" />
+    <meta name="color-scheme" content="light" />
+    <meta name="supported-color-schemes" content="light" />
+    <meta charset="utf-8" />
+    <meta name="robots" content="index,follow" />
+
+    <title>a life chart</title>
+    <meta name="description" content="take a look at your beautyfull life">
+
+    <link rel="stylesheet" href="assets/timepicker/timepicker.css">
+
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/icons/styles.css">
+    <style id="styles2"></style>
+    <style id="styles"></style>
+
+    <!-- Prefetch DNS for external assets -->
+    <!-- <link rel="dns-prefetch" href="//ajax.googleapis.com">
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net">-->
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+
+    <!-- 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js"></script>
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/3.0.0/js.cookie.min.js" integrity="sha512-7saYNuZ1Wama9mcySxAYgnayYvbAEyelZ2kRhb7SJJ9phI05kSl+D1JVnrM/elzOwPQPAI/2t0vmsuphg/sEfA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js" integrity="sha512-CryKbMe7sjSCDPl18jtJI5DR5jtkUWxPXWaLCst6QjH8wxDexfRJic2WRmRXmstr2Y8SxDDWuBO6CQC6IE4KTA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/3.0.0/js.cookie.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+    <script src="assets/timepicker/timepicker.js"></script>
+    <script src="assets/filesaver/FileSaver.js"></script>
+    <script src="assets/life.js"></script>
+
+  </head>
+  <body screen-mode="dark" class="">
+
+    <div class="app-menu">
+      <div class="wrapper">
+        <div class="close icon icons-cross-mark"></div>
+        <div class="row">
+          <div class="column">
+            <h2>Titel</h2><span class="info">Um wen oder was gehts es?</span>
+            <input type="text" name="main-title" placeholder="Name" maxlength="50">
+          </div>
+          <div class="column">
+            <h2>Zeitraum</h2><span class="info">z.B. Geburtstag - Todestag</span> 
+            <div class="date date-range empty" name="main-range">Datum - Datum</div>
+            <i class="data main-range" from="" to="" hidden="true"></i>
+          </div>
+        </div>
+        <div class="inner"></div>
+        <div class="button button-add addgroup icon icons-cross-mark">Neue Gruppe</div><br>
+        <div class="button button-save">Speichern</div>
+        <div class="cookie_expiration"></div>
+        <div class="button button-import inputWrapper"><input class="fileInput" type="file"/>Import</div>
+        <div class="button button-export" onclick="exportDataObjectToFile(data);">Export</div>
+      </div>
+    </div>
+
+    <div class="body" unit="months" mode="compare">
+
+      <div class="header">
+          <div class="switches">
+                <!--<label>Tage <input type="radio" name="unit" value="days"></label>-->
+
+                <div class="item screen-mode">
+                <div class="label">Modus</div>
+                <ul class="radio-switch icon-switch">
+                  <li>
+                    <input name="screen-mode" value="bright" type="radio" id="radio5" name="radioSwitch" >
+                    <label for="radio5" class="icon icons-light-up">&nbsp;</label>
+                  </li>
+                  <li>
+                    <input name="screen-mode" value="dark" type="radio" id="radio6" name="radioSwitch" checked>
+                    <label for="radio6" class="icon icons-moon-o">&nbsp;</label>
+                    <div class="radio-switch__marker" aria-hidden="true"></div>
+                  </li>
+                </ul>
+                </div>
+
+                <!--
+                <div class="item unit">
+                <div class="label">Einheit</div>
+                <ul class="radio-switch">
+                  <li>
+                    <input name="unit" value="weeks" type="radio" id="radio1" name="radioSwitch" >
+                    <label for="radio1">Wochen</label>
+                  </li>
+                  <li>
+                    <input name="unit" value="months" type="radio" id="radio2" name="radioSwitch" checked>
+                    <label for="radio2">Monate</label>
+                    <div class="radio-switch__marker" aria-hidden="true"></div>
+                  </li>
+                </ul>
+                </div>-->
+
+                <div class="item mode">
+                <div class="label">Ansicht</div>
+                <ul class="radio-switch">
+                  <li>
+                    <input name="mode" value="compare" type="radio" id="radio4" name="radioSwitch" >
+                    <label for="radio4">Vergleich</label>
+                  </li>
+                  <li>
+                    <input name="mode" value="time" type="radio" id="radio3" name="radioSwitch" checked>
+                    <label for="radio3">Zeit</label>
+                    <div class="radio-switch__marker" aria-hidden="true"></div>
+                  </li>
+                </ul>
+               </div>
+
+                <div class="item open">
+                  <div class="label">&nbsp;</div>
+                  <div class="menu icon icons-gear"></div>
+                </div>
+              </div>
+              <h1 class="main-title"></h1>
+
+              
+
+      </div>
+
+      <div class="scroll" >
+
+        <table class="table">
+          <tr>
+            <td></td>
+            <td class="xaxis"></td>
+            <td><div class="padding-right"></div></td>
+          </tr>
+          <tr>
+            <td class="yaxis"></td>
+            <td><div id="content"></div></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td class="sections"></td>
+            <td></td>
+          </tr>
+        </table>
+        </div>
+    </div>
+
+  </body>
+</html>
